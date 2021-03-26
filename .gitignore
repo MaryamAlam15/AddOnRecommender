@@ -3,3 +3,4 @@
 *.iml
 __pycache__/
 recommender_model.pkl
+.DS_Store

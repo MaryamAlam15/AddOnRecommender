@@ -12,7 +12,7 @@ will be bought or viewed together.
 ### How it works:
 - Data is read from input_data/ folder.
 - Then it is transformed and put in the Recommender to get trained models.
-- Precdictor is run to get the required predictions.
+- Predictor is run to get the required predictions.
 
 ### How to run:
 To build the docker images:
@@ -21,11 +21,8 @@ To build the docker images:
 To train model and add recommendation:
 > docker-compose run recommender
 
-To get predictions:
-> docker-compose run predictor
-
 ### Copy predicted data to local system:
-> docker cp predictor:/predicted_data/predict.json  predicted_data/
+> docker cp recommender:/predicted_data/predict.json  predicted_data/
 
 ### Tests
 To run tests:

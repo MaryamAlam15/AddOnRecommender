@@ -13,11 +13,11 @@ RUN cd /add_on_recommender
 WORKDIR .
 
 RUN mkdir predicted_data
+RUN mkdir model_data
+RUN chown -R 777 model_data/
 
 # copy all content of the repo on docker.
 COPY . .
 
 # install requirements.
 RUN pip3 install -r requirements.txt
-
-#docker cp <containerId>:/file/path/within/container /host/path/target

@@ -6,18 +6,9 @@ services:
     build: .
     volumes:
     - .:/add_on_recommender/
-    command: python3 add_on_recommender.py
-
-  predictor:
-    container_name: predictor
-    build: .
-    volumes:
-      - .:/add_on_recommender/
-      - ./predicted_data:/add_on_recommender/predicted_data
-    command: python3 predict.py
+    command: bash -c "python3 add_on_recommender.py && python3 predict.py"
 
   tests:
     container_name: tests
     build: .
     command: nosetests tests/
-
