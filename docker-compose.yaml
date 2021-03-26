@@ -1,0 +1,23 @@
+version: '3.6'
+
+services:
+  recommender:
+    container_name: recommender
+    build: .
+    volumes:
+    - .:/add_on_recommender/
+    command: python3 add_on_recommender.py
+
+  predictor:
+    container_name: predictor
+    build: .
+    volumes:
+      - .:/add_on_recommender/
+      - ./predicted_data:/add_on_recommender/predicted_data
+    command: python3 predict.py
+
+  tests:
+    container_name: tests
+    build: .
+    command: nosetests tests/
+
